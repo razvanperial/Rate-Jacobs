@@ -5,7 +5,7 @@ import 'package:flutter_application_3/routing/route_names.dart';
 import 'package:flutter_application_3/views/Majors/majors_view.dart';
 import 'package:flutter_application_3/widgets/call_to_action/call_to_action_mobile.dart';
 import 'package:flutter_application_3/widgets/call_to_action/call_to_action_tablet_desktop.dart';
-import 'package:flutter_application_3/widgets/majors_list/majors_list.dart';
+import 'package:flutter_application_3/widgets/majors_list/majors_final_list.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../locator.dart';

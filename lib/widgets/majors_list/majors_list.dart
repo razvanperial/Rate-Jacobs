@@ -1,59 +1,22 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/widgets/majors_list/majors_list_item.dart';
 
-import 'majors_list_item.dart';
-
-class MajorsList extends StatelessWidget {
-  const MajorsList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          'Pick a Major',
-          style: TextStyle(color: Colors.white, fontSize: 30),
-        ),
-        SizedBox(height: 30),
-        Expanded(
-          child: ListView(
-            children: <Widget>[
-              CourseListItem('Industrial Engineering & Management', ''),
-              SizedBox(height: 25),
-              CourseListItem('Mathematics', ''),
-              SizedBox(height: 25),
-              CourseListItem('Computer Science', ''),
-              SizedBox(height: 25),
-              CourseListItem('Electrical and Computer Engineering', ''),
-              SizedBox(height: 25),
-              CourseListItem('Robotics and Intelligent Systems', ''),
-              SizedBox(height: 25),
-              CourseListItem('Biochemistry and Cell Biology', ''),
-              SizedBox(height: 25),
-              CourseListItem('Chemistry and Biotechnology', ''),
-              SizedBox(height: 25),
-              CourseListItem('Medicinal Chemistry and Chemical Biology', ''),
-              SizedBox(height: 25),
-              CourseListItem('Earth and Environmental Sciences', ''),
-              SizedBox(height: 25),
-              CourseListItem('Physics', ''),
-              SizedBox(height: 25),
-              CourseListItem('Global Economics and Management', ''),
-              SizedBox(height: 25),
-              CourseListItem('International Business Administration', ''),
-              SizedBox(height: 25),
-              CourseListItem('Society, Media and Politics', ''),
-              SizedBox(height: 25),
-              CourseListItem(
-                  'International Relations: Politics and History', ''),
-              SizedBox(height: 25),
-              CourseListItem('Integrated Social and Cognitive Psychology', ''),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
+final List<MajorsListItem> majorsListItems = [
+  MajorsListItem('Industrial Engineering & Management'),
+  MajorsListItem('Mathematics'),
+  MajorsListItem('Computer Science'),
+  MajorsListItem('Electrical and Computer Engineering'),
+  MajorsListItem('Robotics and Intelligent Systems'),
+  MajorsListItem('Biochemistry and Cell Biology'),
+  MajorsListItem('Chemistry and Biotechnology'),
+  MajorsListItem('Medicinal Chemistry and Chemical Biology'),
+  MajorsListItem('Earth and Environmental Sciences'),
+  MajorsListItem('Physics'),
+  MajorsListItem('Global Economics and Management'),
+  MajorsListItem('International Business Administration'),
+  MajorsListItem('Society, Media and Politics'),
+  MajorsListItem('International Relations: Politics and History'),
+  MajorsListItem('Integrated Social and Cognitive Psychology'),
+];
