@@ -11,22 +11,32 @@ class HomeContentDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CenteredView(
-      hor: 65,
-      ver: 40,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          CourseDetails(),
-          SizedBox(height: 40),
-          Expanded(
-            child: Row(
-              children: [
-                CallToAction('Start rating'),
-              ],
-            ),
+    return Container(
+      decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 20,
           ),
         ],
+      ),
+      child: CenteredView(
+        hor: 65,
+        ver: 40,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            CourseDetails(),
+            SizedBox(height: 40),
+            Expanded(
+              child: Row(
+                children: [
+                  CallToAction('Start rating'),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

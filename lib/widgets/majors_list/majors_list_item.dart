@@ -5,5 +5,6 @@ import 'package:flutter/material.dart';
 class MajorsListItem {
   final String title1;
   bool state;
-  MajorsListItem(this.title1, {this.state = false});
+  final String navigationPath;
+  MajorsListItem(this.title1, this.navigationPath, {this.state = false});
 }

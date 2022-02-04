@@ -12,6 +12,7 @@ class MajorsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    for (int i = 0; i < items.length; i++) items[i].state = false;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -29,6 +30,7 @@ class MajorsList extends StatelessWidget {
                 animation, //animation
                 () => addRemoveItem(index), //onClicked
                 items[index].title1, //title
+                items[index].navigationPath,
               );
             },
           ),
@@ -40,7 +42,7 @@ class MajorsList extends StatelessWidget {
   void addRemoveItem(int index) {
     if (items[index].state == false) {
       //adding
-      final newElement = MajorsListItem('default');
+      final newElement = MajorsListItem('default', items[index].navigationPath);
       items.insert(index + 1, newElement);
       listKey.currentState!.insertItem(index + 1);
       items[index].state = true;
@@ -51,10 +53,7 @@ class MajorsList extends StatelessWidget {
       listKey.currentState?.removeItem(
         index + 1,
         (context, animation) => MajorsListItemWidget(
-          animation,
-          () {},
-          removedItem.title1,
-        ),
+            animation, () {}, removedItem.title1, items[index].navigationPath),
       );
       items[index].state = false;
     }

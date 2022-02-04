@@ -1,13 +1,17 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import '../../locator.dart';
+import '../../services/navigation_service.dart';
 import 'bullet.dart';
 
 class MajorsListItemWidget extends StatelessWidget {
   final String title1;
   final Animation<double> animation;
   final VoidCallback? onClicked;
-  MajorsListItemWidget(this.animation, this.onClicked, this.title1);
+  final String navigationPath;
+  MajorsListItemWidget(
+      this.animation, this.onClicked, this.title1, this.navigationPath);
 
   @override
   Widget build(BuildContext context) => SizeTransition(
@@ -47,6 +51,9 @@ class MajorsListItemWidget extends StatelessWidget {
         children: <Widget>[
           SizedBox(width: 50),
           GestureDetector(
+            onTap: () {
+              locator<NavigationService>().navigateTo(navigationPath);
+            },
             child: MouseRegion(
               child: Text(
                 'Rate Major',

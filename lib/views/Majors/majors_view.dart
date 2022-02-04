@@ -9,10 +9,20 @@ class MajorsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CenteredView(
-      hor: 60,
-      ver: 10,
-      child: MajorsList(),
+    return Container(
+      decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 20,
+          ),
+        ],
+      ),
+      child: CenteredView(
+        hor: 60,
+        ver: 10,
+        child: MajorsList(),
+      ),
     );
   }
 }
