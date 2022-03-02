@@ -17,6 +17,7 @@ class CallToActionMobile extends StatelessWidget {
         style: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w800,
+          color: Colors.white,
         ),
       ),
       decoration: BoxDecoration(

@@ -50,7 +50,7 @@ class _RatingState extends State<Rating> {
           },
           child: Text(
             "Clear",
-            style: TextStyle(color: Colors.blue),
+            style: TextStyle(color: Colors.red),
           ),
         ),
       ],
