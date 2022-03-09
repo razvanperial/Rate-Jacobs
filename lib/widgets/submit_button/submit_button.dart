@@ -2,11 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/constants/app_colors.dart';
+import 'package:flutter_application_3/get_add_star_rating/add_star_rating.dart';
 
 import '../centered_view/centered_view.dart';
 
 class submitButton extends StatelessWidget {
-  const submitButton({Key? key}) : super(key: key);
+  submitButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

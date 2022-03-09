@@ -1,12 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/locator.dart';
-import 'package:flutter_application_3/views/home/home_view.dart';
+import 'firebase_options.dart';
 import 'package:flutter_application_3/views/layout_template/layout_template.dart';
 
-void main() {
+Future<void> main() async {
   setuplocator();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

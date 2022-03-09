@@ -1,6 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/routing/route_names.dart';
+import 'package:flutter_application_3/views/about/about_view.dart';
 import '../../locator.dart';
 import '../../services/navigation_service.dart';
 import 'bullet.dart';
@@ -75,9 +77,12 @@ class MajorsListItemWidget extends StatelessWidget {
           ),
           SizedBox(width: 10),
           GestureDetector(
+            onTap: () {
+              locator<NavigationService>().navigateTo(AboutRoute);
+            },
             child: MouseRegion(
               child: Text(
-                'Rate Courses',
+                'See overall ratings',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/get_add_star_rating/add_star_rating.dart';
 import 'package:flutter_application_3/widgets/centered_view/centered_view.dart';
 import 'package:flutter_application_3/widgets/see_overall_ratings/see_overall_ratings.dart';
 import 'package:flutter_application_3/widgets/submit_button/submit_button.dart';
@@ -31,7 +32,8 @@ class _MajorRatingState extends State<MajorRating> {
           ),
         ],
       ),
-      child: CenteredView(
+      child: Padding(
+        padding: EdgeInsets.all(40.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -69,6 +71,7 @@ class _MajorRatingState extends State<MajorRating> {
                   GestureDetector(
                     onTap: () {
                       submited_rating = _rating;
+                      addRating(widget.title, submited_rating);
                       setState(() {
                         _rating = 0;
                       });
@@ -95,8 +98,6 @@ class _MajorRatingState extends State<MajorRating> {
               ),
           ],
         ),
-        hor: 60,
-        ver: 10,
       ),
     );
   }

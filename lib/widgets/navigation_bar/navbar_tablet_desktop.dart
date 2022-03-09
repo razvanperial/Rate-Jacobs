@@ -24,7 +24,7 @@ class NavigationBarTabletDesktop extends StatelessWidget {
               SizedBox(
                 width: 60,
               ),
-              NavBarItem('About', Colors.white, AboutRoute)
+              NavBarItem('Overall Ratings', Colors.white, AboutRoute)
             ],
           ),
         ],

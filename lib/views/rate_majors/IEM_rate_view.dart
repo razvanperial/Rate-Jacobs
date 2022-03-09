@@ -13,6 +13,6 @@ class IEMRateView extends StatefulWidget {
 class _IEMRateViewState extends State<IEMRateView> {
   @override
   Widget build(BuildContext context) {
-    return MajorRating("Industrial Engineering and Management");
+    return MajorRating("Industrial Engineering & Management");
   }
 }
