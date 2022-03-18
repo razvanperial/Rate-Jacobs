@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/routing/route_names.dart';
 import 'package:flutter_application_3/views/about/about_view.dart';
+import 'package:flutter_application_3/widgets/majors_list/text_widget.dart';
 import '../../locator.dart';
 import '../../services/navigation_service.dart';
 import 'bullet.dart';
@@ -12,8 +13,9 @@ class MajorsListItemWidget extends StatelessWidget {
   final Animation<double> animation;
   final VoidCallback? onClicked;
   final String navigationPath;
-  MajorsListItemWidget(
-      this.animation, this.onClicked, this.title1, this.navigationPath);
+  final double size;
+  MajorsListItemWidget(this.animation, this.onClicked, this.title1,
+      this.navigationPath, this.size);
 
   @override
   Widget build(BuildContext context) => SizeTransition(
@@ -33,11 +35,13 @@ class MajorsListItemWidget extends StatelessWidget {
                 children: <Widget>[
                   MyBullet(),
                   SizedBox(width: 10),
-                  Text(
-                    title1,
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
+                  Flexible(
+                    child: Text(
+                      title1,
+                      style: TextStyle(
+                        fontSize: size,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
@@ -51,43 +55,25 @@ class MajorsListItemWidget extends StatelessWidget {
     } else {
       return Row(
         children: <Widget>[
-          SizedBox(width: 50),
+          SizedBox(width: 2 * size),
           GestureDetector(
             onTap: () {
               locator<NavigationService>().navigateTo(navigationPath);
             },
             child: MouseRegion(
-              child: Text(
-                'Rate Major',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-              ),
+              child: TextWidget(title: 'Rate Major'),
               cursor: SystemMouseCursors.click,
             ),
           ),
           SizedBox(width: 10),
-          Text(
-            '|',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.white,
-            ),
-          ),
+          TextWidget(title: '|'),
           SizedBox(width: 10),
           GestureDetector(
             onTap: () {
               locator<NavigationService>().navigateTo(AboutRoute);
             },
             child: MouseRegion(
-              child: Text(
-                'See overall ratings',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-              ),
+              child: TextWidget(title: 'Overall ratings'),
               cursor: SystemMouseCursors.click,
             ),
           ),

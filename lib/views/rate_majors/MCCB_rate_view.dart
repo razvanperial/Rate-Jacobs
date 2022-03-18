@@ -13,6 +13,6 @@ class MCCBRateView extends StatefulWidget {
 class _MCCBRateViewState extends State<MCCBRateView> {
   @override
   Widget build(BuildContext context) {
-    return MajorRating("Medical Chemistry and Chemical Biology");
+    return MajorRating("Medicinal Chemistry and Chemical Biology");
   }
 }

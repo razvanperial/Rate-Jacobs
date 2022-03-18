@@ -12,6 +12,7 @@ import '../views/rate_majors/BCCB_rate_view.dart';
 import '../views/rate_majors/CBT_rate_view.dart';
 import '../views/rate_majors/CS_rate_view.dart';
 import '../views/rate_majors/ECE_rate_view.dart';
+import '../views/rate_majors/EES_rate_view.dart';
 import '../views/rate_majors/GEM_rate_view.dart';
 import '../views/rate_majors/IBA_rate_view.dart';
 import '../views/rate_majors/IEM_rate_view.dart';
@@ -57,6 +58,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(RISRateView());
     case SMPRateRoute:
       return _getPageRoute(SMPRateView());
+    case EESRateRoute:
+      return _getPageRoute(EESRateView());
     default:
       return _getPageRoute(MajorsView());
   }

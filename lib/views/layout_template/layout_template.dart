@@ -10,8 +10,6 @@ import 'package:responsive_builder/responsive_builder.dart';
 import '../../widgets/centered_view/centered_view.dart';
 import '../../widgets/navigation_bar/navigation_bar.dart';
 import '../../widgets/navigation_drawer/navigation_drawer.dart';
-import '../home/home_content_desktop.dart';
-import '../home/home_content_mobile.dart';
 
 class LayoutTemplate extends StatelessWidget {
   const LayoutTemplate({Key? key}) : super(key: key);
@@ -19,43 +17,49 @@ class LayoutTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
-      builder: (context, sizingInformation) => Scaffold(
-        drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
-            ? NavigationDrawer()
-            : null,
-        backgroundColor: Colors.white,
-        body: Center(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("background.png"),
-                    fit: BoxFit.fill,
+      builder: (context, sizingInformation) {
+        double size =
+            sizingInformation.deviceScreenType == DeviceScreenType.desktop
+                ? 70
+                : 50;
+        return Scaffold(
+          drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
+              ? NavigationDrawer()
+              : null,
+          backgroundColor: Colors.white,
+          body: Center(
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("background.png"),
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
-              ),
-              CenteredView(
-                hor: 70,
-                ver: 60,
-                child: Column(
-                  children: <Widget>[
-                    Navigation_Bar(),
-                    SizedBox(height: 60),
-                    Expanded(
-                      child: Navigator(
-                        key: locator<NavigationService>().navigatorKey,
-                        onGenerateRoute: generateRoute,
-                        initialRoute: HomeRoute,
+                CenteredView(
+                  hor: size,
+                  ver: 60,
+                  child: Column(
+                    children: <Widget>[
+                      Navigation_Bar(),
+                      SizedBox(height: 30),
+                      Expanded(
+                        child: Navigator(
+                          key: locator<NavigationService>().navigatorKey,
+                          onGenerateRoute: generateRoute,
+                          initialRoute: HomeRoute,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

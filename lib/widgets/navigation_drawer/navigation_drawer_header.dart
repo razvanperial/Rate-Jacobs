@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/routing/route_names.dart';
 import '../../constants/app_colors.dart';
+import '../../locator.dart';
+import '../../services/navigation_service.dart';
 
 class NavigationDrawerHeader extends StatelessWidget {
   const NavigationDrawerHeader({Key? key}) : super(key: key);
@@ -10,26 +13,31 @@ class NavigationDrawerHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      color: primaryColor,
       alignment: Alignment.center,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Text(
-            'PICK A COURSE',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w800,
-              color: Colors.black,
+      child: GestureDetector(
+        onTap: () {
+          Scaffold.of(context).closeDrawer();
+          locator<NavigationService>().navigateTo(MajorsRoute);
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              'PICK A MAJOR',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w800,
+                color: Colors.white60,
+              ),
             ),
-          ),
-          Text(
-            'TAP HERE',
-            style: TextStyle(
-              color: Colors.black,
+            Text(
+              'TAP HERE',
+              style: TextStyle(
+                color: Colors.white60,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

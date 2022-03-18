@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors_in_immutables, unnecessary_this, prefer_const_constructors, prefer_final_fields, unused_field
 
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class Rating extends StatefulWidget {
   final int maxRating;
@@ -58,14 +59,20 @@ class _RatingState extends State<Rating> {
   }
 
   Widget _buildRatingStar(int index) {
-    if (index < _currentRating) {
-      return Icon(
-        Icons.star,
-        color: Colors.orange,
-        size: 50,
-      );
-    }
+    return ResponsiveBuilder(builder: ((context, sizingInformation) {
+      double size =
+          sizingInformation.deviceScreenType == DeviceScreenType.desktop
+              ? 50
+              : 40;
+      if (index < _currentRating) {
+        return Icon(
+          Icons.star,
+          color: Colors.orange,
+          size: size,
+        );
+      }
 
-    return Icon(Icons.star_border_outlined, color: Colors.white, size: 50);
+      return Icon(Icons.star_border_outlined, color: Colors.white, size: size);
+    }));
   }
 }

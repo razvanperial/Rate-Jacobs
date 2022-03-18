@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/constants/app_colors.dart';
 import 'package:flutter_application_3/routing/route_names.dart';
 
 import 'drawer_item.dart';
@@ -14,7 +15,14 @@ class NavigationDrawer extends StatelessWidget {
     return Container(
       width: 300,
       decoration: BoxDecoration(
-        color: Colors.blue[50],
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            primaryColor,
+            Colors.black,
+          ],
+        ),
         boxShadow: [
           BoxShadow(color: Colors.black12, blurRadius: 16),
         ],
@@ -22,8 +30,9 @@ class NavigationDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           NavigationDrawerHeader(),
-          DrawerItem('Majors', Icons.book, MajorsRoute),
-          DrawerItem('About', Icons.help, AboutRoute),
+          DrawerItem('Majors', Icons.book_outlined, MajorsRoute),
+          DrawerItem('Overall Ratings', Icons.align_horizontal_left_rounded,
+              AboutRoute),
         ],
       ),
     );

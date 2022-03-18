@@ -16,11 +16,11 @@ class CourseDetails extends StatelessWidget {
                 : TextAlign.center;
         double titleSize =
             sizingInformation.deviceScreenType == DeviceScreenType.mobile
-                ? 50
+                ? 40
                 : 60;
         double descriptionSize =
             sizingInformation.deviceScreenType == DeviceScreenType.mobile
-                ? 16
+                ? 18
                 : 21;
         return Container(
           width: 1050,
@@ -29,7 +29,7 @@ class CourseDetails extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Rate Jacobs Courses',
+                'Rate Jacobs Majors',
                 style: TextStyle(
                     fontWeight: FontWeight.w800,
                     height: 0.9,
@@ -41,7 +41,7 @@ class CourseDetails extends StatelessWidget {
                 height: 30,
               ),
               Text(
-                'This website allows you to rate different courses from Jacobs that you have taken part of. Start by picking a course and rate it anonymously!',
+                'This website allows you to rate different majors from Jacobs. Start by picking a course and rate it anonymously!',
                 style: TextStyle(
                     fontSize: descriptionSize,
                     height: 1.7,

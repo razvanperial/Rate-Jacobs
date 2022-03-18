@@ -7,7 +7,8 @@ import 'package:responsive_builder/responsive_builder.dart';
 import 'navbar_mobile.dart';
 
 class Navigation_Bar extends StatelessWidget {
-  const Navigation_Bar({Key? key}) : super(key: key);
+  void f;
+  Navigation_Bar({Key? key, this.f}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

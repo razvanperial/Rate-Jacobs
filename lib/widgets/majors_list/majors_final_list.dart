@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_3/widgets/majors_list/majors_list.dart';
 import 'package:flutter_application_3/widgets/majors_list/majors_list_item.dart';
 import 'package:flutter_application_3/widgets/majors_list/majors_list_item_widget.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class MajorsList extends StatelessWidget {
   final listKey = GlobalKey<AnimatedListState>();
@@ -13,30 +14,46 @@ class MajorsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     for (int i = 0; i < items.length; i++) items[i].state = false;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          'Pick a Major',
-          style: TextStyle(color: Colors.white, fontSize: 30),
-        ),
-        SizedBox(height: 30),
-        Expanded(
-          child: AnimatedList(
-            key: listKey,
-            initialItemCount: items.length,
-            itemBuilder: (context, index, animation) {
-              return MajorsListItemWidget(
-                animation, //animation
-                () => addRemoveItem(index), //onClicked
-                items[index].title1, //title
-                items[index].navigationPath,
-              );
-            },
+    return ResponsiveBuilder(builder: (context, sizingInformation) {
+      double size =
+          sizingInformation.deviceScreenType == DeviceScreenType.desktop
+              ? 40
+              : 30;
+      var textAlignment =
+          sizingInformation.deviceScreenType == DeviceScreenType.desktop
+              ? TextAlign.start
+              : TextAlign.center;
+      double size2 =
+          sizingInformation.deviceScreenType == DeviceScreenType.desktop
+              ? 25
+              : 20;
+      return Column(
+        //crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'Pick a Major',
+            textAlign: textAlignment,
+            style: TextStyle(color: Colors.white, fontSize: size),
           ),
-        ),
-      ],
-    );
+          SizedBox(height: 30),
+          Expanded(
+            child: AnimatedList(
+              key: listKey,
+              initialItemCount: items.length,
+              itemBuilder: (context, index, animation) {
+                return MajorsListItemWidget(
+                  animation, //animation
+                  () => addRemoveItem(index), //onClicked
+                  items[index].title1, //title
+                  items[index].navigationPath,
+                  size2,
+                );
+              },
+            ),
+          ),
+        ],
+      );
+    });
   }
 
   void addRemoveItem(int index) {
@@ -52,8 +69,8 @@ class MajorsList extends StatelessWidget {
       items.removeAt(index + 1);
       listKey.currentState?.removeItem(
         index + 1,
-        (context, animation) => MajorsListItemWidget(
-            animation, () {}, removedItem.title1, items[index].navigationPath),
+        (context, animation) => MajorsListItemWidget(animation, () {},
+            removedItem.title1, items[index].navigationPath, 5),
       );
       items[index].state = false;
     }

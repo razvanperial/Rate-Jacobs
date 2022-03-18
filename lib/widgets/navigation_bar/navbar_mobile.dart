@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/routing/route_names.dart';
 import 'package:flutter_application_3/widgets/navigation_bar/navbar_logo.dart';
+import 'package:flutter_application_3/widgets/navigation_drawer/navigation_drawer.dart';
 
 class NavigationBarMobile extends StatelessWidget {
   const NavigationBarMobile({Key? key}) : super(key: key);
@@ -16,7 +17,9 @@ class NavigationBarMobile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
             icon: Icon(Icons.menu),
           ),
           NavBarLogo(HomeRoute),

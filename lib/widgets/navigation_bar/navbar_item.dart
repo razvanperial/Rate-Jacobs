@@ -12,6 +12,7 @@ class NavBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        Scaffold.of(context).closeDrawer();
         locator<NavigationService>().navigateTo(navigationPath);
       },
       child: MouseRegion(

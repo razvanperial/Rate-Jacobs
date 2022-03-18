@@ -22,20 +22,25 @@ class HomeContentDesktop extends StatelessWidget {
       ),
       child: CenteredView(
         hor: 65,
-        ver: 40,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            CourseDetails(),
-            SizedBox(height: 40),
-            Expanded(
-              child: Row(
-                children: [
-                  CallToAction('Start rating'),
-                ],
-              ),
+        ver: 30,
+        child: SingleChildScrollView(
+          child: SizedBox(
+            height: 250,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                CourseDetails(),
+                SizedBox(height: 40),
+                Expanded(
+                  child: Row(
+                    children: [
+                      CallToAction('Start rating'),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

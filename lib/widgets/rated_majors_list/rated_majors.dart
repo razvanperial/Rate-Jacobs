@@ -18,11 +18,10 @@ class RatedMajors extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: primaryColor,
-      ),
+          borderRadius: BorderRadius.circular(10),
+          color: primaryColor,
+          border: Border.all(color: Colors.white30)),
       child: Column(
-        //crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 10),
           SizedBox(
